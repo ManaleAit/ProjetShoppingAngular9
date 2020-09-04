@@ -1,0 +1,13 @@
+.img{
+  height: 40Px;
+}
+.colorTheme{
+  font-style: normal;
+  color: rgb(18, 10, 48);
+}
+.styBody{
+
+    background-color:white !important;
+    color: rgb(12, 20, 46);
+    font-weight: 300;
+}
