@@ -22,7 +22,10 @@ export class AuthenticationService   {
 logoutUser() {
   this.isLoggedIn=false;
   localStorage.removeItem('token');
+  localStorage.removeItem('role');
+  localStorage.removeItem('email');
   localStorage.removeItem('username');
+  localStorage.removeItem('id');
   
   this.router.navigate(['/Accueil'])
 }

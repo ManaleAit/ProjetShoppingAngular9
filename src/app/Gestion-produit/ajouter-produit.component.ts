@@ -1,59 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ServiceUserService } from '../Services/service-user.service';
 import { NotificationService } from '../Services/service-notifications.service';
-import { User } from '../models/User';
 import { Fournisseur } from '../models/Fournisseur';
 import { Role } from '../models/Role';
+import { Produit } from '../models/Produit';
+import { ServiceProduitService } from '../Services/service-produit.service';
 @Component({
   selector: 'app-ajouter-produit',
   templateUrl: './ajouter-produit.component.html',
   styleUrls: ['./ajouter-produit.component.css']
 })
 export class AjouterProduitComponent implements OnInit {
-  /*users:  User[] = [];
-  name: string;
+
+  PhotoUpload: File;
   send:boolean=false;
-  update:boolean=false;
-  userSelect: User =new User();
-  founisseur:Fournisseur;
-  userSelectDelete: User =new User();
-  user:User=new User();
-  role:Role;*/
-  fileUpload: File;
-  constructor(private router: Router,private ServiceUserService:ServiceUserService, private notification: NotificationService) {
+  produitCreate:Produit=new Produit();
+  constructor(private router: Router,private ServiceProduitService:ServiceProduitService, private notification: NotificationService) {
 
   }
-/*
+
   FormulaireControl= new FormGroup({
-    userName : new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    email:new FormControl('', Validators.email),
-    ville:new FormControl('', Validators.required),
-    telephone:new FormControl('', Validators.required),
-    entreprise:new FormControl('', Validators.required),
+    libelle : new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    prix:new FormControl('', Validators.required),
+    typeProduit:new FormControl('', Validators.required),
+   
   }
   );
 
-  get telephone() {
-    return this.FormulaireControl.get('telephone');
+
+  get libelle() {
+    return this.FormulaireControl.get('libelle');
   }
-  get entreprise() {
-    return this.FormulaireControl.get('entreprise');
+  get description() {
+    return this.FormulaireControl.get('description');
   }
-  get userName() {
-    return this.FormulaireControl.get('userName');
+  get prix() {
+    return this.FormulaireControl.get('prix');
   }
-  get email() {
-    return this.FormulaireControl.get('email');
+  get typeProduit() {
+    return this.FormulaireControl.get('typeProduit');
   }
-  get ville() {
-    return this.FormulaireControl.get('ville');
-  }
-  get password() {
-    return this.FormulaireControl.get('password');
-  }*/
   
   
  
@@ -66,75 +54,68 @@ export class AjouterProduitComponent implements OnInit {
 
     if (event.target.files.length > 0) {
 
-      this.fileUpload = event.target.files[0];
+      this.PhotoUpload = event.target.files[0];
 
     }
 
   }
   save() {
-   /* this.user.fournisseur=new Fournisseur();
-    this.founisseur=new Fournisseur();
-    this.founisseur.ville=this.FormulaireControl.get('ville').value;
-    this.founisseur.telephone=this.FormulaireControl.get('telephone').value;
-    this.founisseur.entreprise=this.FormulaireControl.get('entreprise').value;
-    this.user.fournisseur=this.founisseur;
-    this.user.userName=this.FormulaireControl.get('userName').value;
-    this.user.email=this.FormulaireControl.get('email').value;
-    this.user.password=this.FormulaireControl.get('password').value;
-    this.role=new Role();
-    this.role.id=3;
-    this.user.roles=[];
-    this.user.roles.push(this.role);
-    this.ServiceUserService.createUser(this.user)
+    this.produitCreate=new Produit();
+    this.produitCreate.libelle=this.FormulaireControl.get('libelle').value;
+    this.produitCreate.description=this.FormulaireControl.get('description').value;
+    this.produitCreate.prix=this.FormulaireControl.get('prix').value;
+    this.produitCreate.typeProduit=this.FormulaireControl.get('typeProduit').value;
+    this.produitCreate.fournisseur=new Fournisseur();
+    this.produitCreate.fournisseur.id=localStorage.getItem('id');
+    this.ServiceProduitService.createProduit(this.produitCreate)
       .subscribe(
         (data) => {
           console.log("data ", data);
+          if(data!=null){
+          this.ServiceProduitService.uploadPhoto(this.PhotoUpload, data);
 
-          this.notification.showSuccess("le founisseur est bien ajouté", "L'ajout d'un founisseur");
+          this.notification.showSuccess("le produit est bien ajouté", "L'ajout d'un produit");
+
+        }
 
 
         },
         error => {      
           console.log("Error", error);
         }
-      );*/
+      );
   }
 
 
 
    SendChange(){
      
-     /*this.send=true;
-     console.log(this.FormulaireControl);*/
+     this.send=true;
+     console.log(this.FormulaireControl);
    }
   
    onSubmit() {
-   /* if (this.FormulaireControl.valid) {
+    if (this.FormulaireControl.valid) {
       this.save();
       this.resetForm();
-      this.delay(1000).then(any => {
-        this.ngOnInit();
-      });
+     
     } else if (this.send) {
       this.notification.showWarning("Merci de remplir les champs du formulaire", "Attention!!!!!!!");
     }
-*/
+
   }
 
 
-  /* resetForm() {
+   resetForm() {
     
    this.FormulaireControl.reset({
-      userName : '',
-      password: '',
-      email:'',
-      ville:'',
-      telephone:'',
-      entreprise:'',
+    libelle : '',
+    description:'',
+    prix:'',
+    typeProduit:'',
     }
     );
     this.send = false;
-    this.update = false;
 
-  }*/
+  }
 }

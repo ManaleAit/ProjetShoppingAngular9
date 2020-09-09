@@ -20,7 +20,6 @@ import { AjouterProduitComponent } from '../../Gestion-produit/ajouter-produit.c
 import { ServiceUserService } from '../../Services/service-user.service';
 import { ErrorInterceptor } from './error.interceptor';
 import { AfficherProduitsComponent } from '../../Gestion-produit/afficher-produits.component';
-import { UpdateProduitComponent } from '../../Gestion-produit/update-produit.component';
 //import { ToastrModule } from 'ngx-toastr'; 
 @NgModule({
   imports: [
@@ -48,7 +47,7 @@ import { UpdateProduitComponent } from '../../Gestion-produit/update-produit.com
     GestionFournisseurComponent,
     AjouterProduitComponent,
     AfficherProduitsComponent,
-    UpdateProduitComponent
+    
   ]
 })
 

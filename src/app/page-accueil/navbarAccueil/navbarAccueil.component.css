@@ -11,22 +11,24 @@
 .colorStyle{
   color:#FFA07A ;
   text-align: justify;
-  margin-left: 17%;
+  margin-left: 50%;
 }
 .stylemar{
     color:#FF00FF;
+    margin-left: 30%;
 }
 .stylebut{
     background-color: #F0E68C;
-    margin-left: 35%;
+    margin-left: 55%;
 }
 .stylehr{
   background-color: #F0E68C;
+  margin-left: 45%;
 }
 
 .styleH1{
    text-align: justify;
-   margin-left: 15%;
+   margin-left: 50%;
 }
 header.masthead {
   padding-top: 10rem;
@@ -106,7 +108,7 @@ header.masthead h1 {
 
 .topnav {
   overflow: hidden;
-  background-color:white;
+  background-color:transparent!important;
 }
 
 .topnav a {
@@ -158,6 +160,11 @@ header.masthead h1 {
 
 .margLeft{
  float:right;
+}
+
+.sote{
+  margin-top: 20%;
+  margin-left: -35%;
 }
 
 

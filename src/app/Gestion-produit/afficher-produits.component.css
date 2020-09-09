@@ -21,3 +21,8 @@ body {
 .cardStyle {
     width: 150%;
 }
+
+.bgColor{
+
+    background-color:rgb(109, 42, 109);
+  }

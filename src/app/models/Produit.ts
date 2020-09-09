@@ -4,7 +4,7 @@ import { Commande } from './Commande';
 export class Produit{
     id:any;
 	libelle:string;
-	photo:any;
+	photoPath:any;
 	description:string;
 	prix:any;
     commandes:Commande[];

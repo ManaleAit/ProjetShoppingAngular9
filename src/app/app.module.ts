@@ -22,6 +22,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { AuthenticationService } from './Services/authentication.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthGuard } from './Services/AuthGuard';
+import { EspaceClientComponent } from './Espace-client/espace-client.component';
 //import { TokenInterceptor } from './Services/token-interceptor';
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { AuthGuard } from './Services/AuthGuard';
     AdminLayoutComponent,
     PageAccueilComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    EspaceClientComponent
 
 
   ],

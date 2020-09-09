@@ -27,6 +27,7 @@ export class AdminLayoutComponent implements OnInit {
         this.role = localStorage.getItem('role');
         if (this.role == 'admin') {
             this.authorizeUser = true;
+            console.log('rrr'+localStorage.getItem('role'));
         }
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 

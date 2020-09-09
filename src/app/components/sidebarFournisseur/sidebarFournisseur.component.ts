@@ -10,7 +10,6 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/AjouterProduit', title: 'Ajouter un produit ',  icon:'add_business', class: '' },
     { path: '/afficher-produits', title: 'La liste des produits',  icon:'storefront', class: '' },
-    { path: '/UpdateProduit', title: 'Modifier un produit',  icon:'store_mall_directory', class: '' },
 
   ];
 //gestion-marche

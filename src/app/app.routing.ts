@@ -7,11 +7,12 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import {LoginComponent} from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthGuard } from './Services/AuthGuard';
+import { EspaceClientComponent } from './Espace-client/espace-client.component';
 const routes: Routes =[
   {
     path: '',
     //redirectTo: 'dashboard',
-    redirectTo: 'dashboard',
+    redirectTo: 'Accueil',
     pathMatch: 'full',
   }, {
     path: '',
@@ -31,6 +32,9 @@ const routes: Routes =[
   },  {
     path: 'registration',
      component: RegistrationComponent
+  },   {
+    path: 'espaceClient',
+     component: EspaceClientComponent
   }, 
 ];
 @NgModule({

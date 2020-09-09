@@ -55,24 +55,25 @@ export class LoginComponent implements OnInit {
            .subscribe(
             (data) => {
               console.log(data);
-              this.router.navigate(['/dashboard'])
+              
               localStorage.setItem('token',data.toString());
-              localStorage.setItem('username',data.userName);
-              localStorage.setItem('email',data.email);
               this.roles=data.roles;
               this.role=this.roles[0];
               localStorage.setItem('role',this.role.name);
-           
-            /*this.roles.forEach(function(item){
-              this.rolesString.push(item.name);
-            });
-            for (var i = 0; i < this.roles.length; i++) {
-              this.rolesString.push(this.roles[i].name);
-              console.log('ssss   '+this.rolesString[i].toString);
-            }*/
-        
-            //localStorage.setItem('roles',this.rolesString.toLocaleString());
+              localStorage.setItem('username',data.userName);
+              localStorage.setItem('email',data.email);
+              if(data.fournisseur!=null){
+                localStorage.setItem('id',data.fournisseur.id);
+              }
+              
+              if(this.role.name=='user'){
+                this.router.navigate(['/espaceClient'])
 
+              }
+              else{
+                this.router.navigate(['/dashboard'])
+              }
+           
             },
             error => {console.log(error);});
       

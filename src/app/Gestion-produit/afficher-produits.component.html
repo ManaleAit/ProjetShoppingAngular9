@@ -41,12 +41,15 @@
                                            <tr *ngFor='let o of produits  | paginate: { itemsPerPage: 4, currentPage: p }'>
                                              
                                                <td>{{o.libelle}}</td>
-                                               <td>{{o.photo}}</td>
+                                               <td><img src='../../../assets/Products/{{o.photoPath}}'
+                                                style="width:100px;height:100px;" /></td>
                                                <td>{{o.description}}</td>
                                                <td>{{o.prix}}</td>
                                                <td>{{o.typeProduit}}</td>
                                                <td style="padding-left: 25px;">
-                          
+                                                <a class="btn bg-light px-1 p-1 ml-1"><i class="fa fa-pencil fa-2x colorText"
+                                                    style="cursor: pointer;" (click)="onSelectUpdate(o);Update.show()"
+                                                    data-toggle="modal" data-target="#modalUpdate"></i></a>
                                                    <a class="btn bg-light px-1 p-1 ml-1"><i class="fa fa-trash fa-2x colorText" style="cursor: pointer;"   (click)="onSelectDelete(o);Delete.show()" data-toggle="modal" data-target="#modalDelete"></i></a>
                                                    
                                                </td>
@@ -83,6 +86,92 @@
                         </div>
 
                     </div>
+
+                    <div bsModal #Update="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+                    aria-labelledby="AddLabel" aria-hidden="true">
+                    <div class="modal-dialog bg-dark" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header  bg-dark">
+                                <h4 class="modal-title text-white">Modifier les informations le produit</h4>
+                                <button type="button" class="close" (click)="Update.hide()" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body horizontal-scrollable" style="height:550px;">
+                                <form [formGroup]="FormulaireControl" (ngSubmit)="onSubmit()">
+                                    <div class="form-group">
+                                       <label>Titre de produit</label>
+                                        <input type="text" class="form-control" placeholder="Titre"
+                                            formControlName="libelle">
+        
+                                        <div *ngIf=" send &&  libelle.invalid" class="text-danger">
+                                            Le champs le titre de produit est obligatoire*
+                                        </div>
+                                    </div>
+                                   
+        
+                                    <div class="form-group">
+                                        <label>Le choix de type de produit</label>
+                                        <select class="form-control selectpicker"  [compareWith]="compareFn"  formControlName="typeProduit">
+                                            <option value="éléctromenager">éléctromenager</option>
+                                            <option value="cosmétique">cosmétique</option>
+                                            <option value="mobilier">mobilier</option>
+                                            <option value="transport">transport</option>
+                                        </select>
+        
+                                        <div *ngIf="send &&  maitreOuvrage.invalid" class="text-danger">
+                                            Le champs type de produit est obligatoire*
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group">
+                                        <label>La description de produit</label>
+                                        <input type="text" class="form-control"  placeholder="La description" formControlName="description">
+        
+                                        <div *ngIf="send &&  description.invalid" class="text-danger">
+                                            Le champs description de produit est obligatoire*
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bgColor text-white"
+                                                id="inputGroupFileAddon01">Upload</span>
+                                        </div>
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input  " id="inputGroupFile01"
+                                                aria-describedby="inputGroupFileAddon01"
+                                                (change)="onFileChange($event)">
+                                            <label class="custom-file-label" for="inputGroupFile01">La photo a
+                                                joindre</label>
+                                        </div>
+                                    </div>
+                                    <img src='../../../assets/Products/{{ProSelect.photoPath}}'
+                                                style="width:100px;height:100px;" />
+                                    <div class="form-group">
+                                        <label>Le prix de produit</label>
+                                        <input type="text" class="form-control"  placeholder="Le prix de produit" formControlName="prix">
+        
+                                        <div *ngIf="send &&  prix.invalid" class="text-danger">
+                                            Le champs prix de produit est obligatoire*
+                                        </div>
+                                    </div>
+                                   
+                                 
+        
+        
+                                
+                                    <button class="btn bgColor w-100" type="submit" (click)="SendChange()"><span>Modifier le
+                                            produit&ensp; &ensp; &ensp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></span></button>
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    (click)="Update.hide()">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                         <!-- supprimer un employee-->
                         <div bsModal #Delete="bs-modal" class="modal fade" tabindex="-1" role="dialog"
