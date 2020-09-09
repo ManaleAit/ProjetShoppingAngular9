@@ -8,15 +8,18 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/Fournisseur', title: 'Gestion des Fournisseurs',  icon:'supervised_user_circle', class: '' },
+    { path: '/AjouterProduit', title: 'Ajouter un produit ',  icon:'add_business', class: '' },
+    { path: '/afficher-produits', title: 'La liste des produits',  icon:'storefront', class: '' },
+    { path: '/UpdateProduit', title: 'Modifier un produit',  icon:'store_mall_directory', class: '' },
+
   ];
 //gestion-marche
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-sidebarFournisseur',
+  templateUrl: './sidebarFournisseur.component.html',
+  styleUrls: ['./sidebarFournisseur.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarFournisseurComponent implements OnInit {
   menuItems: any[];
   authorize=false;
   username:any;

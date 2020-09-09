@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card  ">
+                    <div class="card-header bg-dark marleft ">
+                        <h4 class="card-title  text-white ">Ajouter un produit    </h4>
+                        <p class="card-category text-white  ">Nouveau produit</p>
+                    </div>
+                    <div class="card-body ">
+                        <form [formGroup]="FormulaireControlSend" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" placeholder="Titre"
+                                    formControlName="libelle">
+
+                                <div *ngIf=" send &&  libelle.invalid" class="text-danger">
+                                    Le champs le titre de produit est obligatoire*
+                                </div>
+                            </div>
+                           
+
+                            <div class="form-group">
+                                <label>Le choix de type de produit</label>
+                                <select class="form-control selectpicker" formControlName="typeProduit">
+                                    <option value=""></option>
+                                </select>
+
+                                <div *ngIf="send &&  maitreOuvrage.invalid" class="text-danger">
+                                    Le champs type de produit est obligatoire*
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control"  placeholder="La description" formControlName="description">
+
+                                <div *ngIf="send &&  description.invalid" class="text-danger">
+                                    Le champs description de produit est obligatoire*
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bgColor text-white"
+                                        id="inputGroupFileAddon01">Upload</span>
+                                </div>
+                                <div class="custom-file ">
+                                    <input type="file" class="custom-file-input  " id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01"
+                                        (change)="onFileChange($event)">
+                                    <label class="custom-file-label" for="inputGroupFile01">La photo a
+                                        joindre</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control"  placeholder="Le prix de produit" formControlName="prix">
+
+                                <div *ngIf="send &&  prix.invalid" class="text-danger">
+                                    Le champs prix de produit est obligatoire*
+                                </div>
+                            </div>
+                           
+                         
+
+
+                        
+                            <button class="btn bgColor w-100" type="submit" (click)="SendChange()"><span>Ajouter le
+                                    produit&ensp; &ensp; &ensp;<i class="fa fa-cart-plus" aria-hidden="true"></i></span></button>
+                        </form>
+                        <a  routerLink="/afficher-produits"  style="margin-left: 43%;"><-- page d'Accueil</a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>

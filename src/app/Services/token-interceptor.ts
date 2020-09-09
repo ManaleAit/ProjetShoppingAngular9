@@ -1,17 +1,19 @@
-/*import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { from, Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 
 @Injectable()
+
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private auth: AuthenticationService) {
   }
-
+ 
+  
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const tokenPromise: Promise<string> = this.auth.getToken();
+    const tokenPromise= this.auth.getToken();
     const tokenObservable: Observable<string> = from(tokenPromise);
 
     return tokenObservable.pipe(
@@ -23,4 +25,3 @@ export class TokenInterceptor implements HttpInterceptor {
       }));
   }
 }
-*/

@@ -1,0 +1,18 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+
+.backColor{
+    background-color:rgb(1, 1, 31);
+  }
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+
+.cardStyle {
+    width: 150%;
+}

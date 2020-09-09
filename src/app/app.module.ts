@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule} from '@angular/core';
+import { NgModule, APP_INITIALIZER} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -19,6 +19,10 @@ import {PageAccueilComponent} from './page-accueil/page-accueil.component';
 import {LoginComponent} from './login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import { AuthenticationService } from './Services/authentication.service';
+import { RegistrationComponent } from './registration/registration.component';
+import { AuthGuard } from './Services/AuthGuard';
+//import { TokenInterceptor } from './Services/token-interceptor';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -42,13 +46,15 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     AppComponent,
     AdminLayoutComponent,
     PageAccueilComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
 
 
   ],
   providers: [
+    AuthGuard,
     NotificationService,{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-   
+    ,AuthenticationService//,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
   
   bootstrap: [AppComponent],

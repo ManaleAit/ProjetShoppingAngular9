@@ -5,15 +5,17 @@ import { Routes, RouterModule } from '@angular/router';
 import {PageAccueilComponent} from './page-accueil/page-accueil.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {LoginComponent} from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AuthGuard } from './Services/AuthGuard';
 const routes: Routes =[
   {
     path: '',
     //redirectTo: 'dashboard',
-    redirectTo: 'Accueil',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   }, {
     path: '',
-    component: AdminLayoutComponent,
+    component: AdminLayoutComponent,//canActivate: [AuthGuard],
     children: [{
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
@@ -26,7 +28,10 @@ const routes: Routes =[
   {
     path: 'login',
      component: LoginComponent
-  },  
+  },  {
+    path: 'registration',
+     component: RegistrationComponent
+  }, 
 ];
 @NgModule({
   imports: [

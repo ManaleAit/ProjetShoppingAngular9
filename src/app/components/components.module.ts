@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarFournisseurComponent } from './sidebarFournisseur/sidebarFournisseur.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,11 +14,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    SidebarFournisseurComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    SidebarFournisseurComponent
   ]
 })
 export class ComponentsModule { }
