@@ -35,7 +35,7 @@ const routes: Routes =[
   },   {
     path: 'espaceClient',
      component: EspaceClientComponent
-  }, 
+  }
 ];
 @NgModule({
   imports: [

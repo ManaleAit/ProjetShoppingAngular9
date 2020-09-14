@@ -1,10 +1,8 @@
 <div class="topnav" id="myTopnav">
     <div class="container">
+
         <a class="nav-link js-scroll-trigger" (click)="cosmetic()">
-            <i class="fa fa-shopping-basket" aria-hidden="true"></i> Acheter maintenant
-        </a>
-        <a class="nav-link js-scroll-trigger" (click)="cosmetic()">
-            Produits cosmétiques
+            Produits cosmétiques & maquillages
         </a>
         <a class="nav-link js-scroll-trigger" (click)="electomenage()">
             Produits éléctromenagers
@@ -13,7 +11,7 @@
             Produits mobiliers
         </a>
         <a class="nav-link js-scroll-trigger" (click)="transport()">
-            Produits transports
+            Produits voitures
         </a>
         <a class="nav-link js-scroll-trigger" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true">
                 Déconnexion</i>
@@ -26,6 +24,8 @@
     </div>
 
 </div>
+<br>
+<h4>Bienvenue&nbsp;&nbsp; &nbsp;{{userName}}</h4>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -34,13 +34,24 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../../assets/img/index.jpg" class="d-block styleslide" alt="...">
+
+
+            <img src="../../../assets/img/cos.jpg" class="d-block"
+                style="float: left;  margin-left: 30%;margin-top: 2%;height:200px; width: 280px;" alt="...">
+            <img src="../../../assets/img/mobilier.jpg" class="d-block " style="
+margin-top: 2%;height:200px; width: 280px;" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../../../assets/img/index2.jpg" class="d-block styleslide" alt="...">
+            <img src="../../../assets/img/20180228_170750_thinkstockphotos-513631128ok.jpg" class="d-block "
+                style="float: left;  margin-left: 30%;margin-top: 2%;height:200px; width: 280px;" alt="...">
+            <img src="../../../assets/img/index.jpg" class="d-block " style="
+            margin-top: 2%;height:200px; width: 280px;" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="../../../assets/img/images.jpg" class="d-block styleslide" alt="...">
+            <img src="../../../assets/img/images.jpg" class="d-block"
+                style="float: left;  margin-left: 30%;margin-top: 2%;height:200px; width: 280px;" alt="...">
+            <img src="../../../assets/img/location-voiture-maroc_citadines-compactes_HMA.jpg" class="d-block " style="
+            margin-top: 2%;height:200px; width: 280px;" alt="...">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -59,7 +70,36 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card cardStyle">
+                    <div class="card-header bg-dark  marleft ">
+                        <button class="btn btn-warning w-100" type="submit" (click)="Update.show()"><span>Valider la
+                                commande</span></button>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">Votre panier d'achat &nbsp;&nbsp; &nbsp;<i
+                                    class="fa fa-shopping-basket" aria-hidden="true"></i></h5>
+                            <div>
+                                <table class="leftPositon">
+                                    <tr>
+                                        <th>Le produit</th>
+                                        <th>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Prix de produit</th>
+                                    </tr>
+                                    <tr *ngFor='let p of commande '>
+                                        <td>{{p?.libelle}}</td>
+                                        <td>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{p?.prix}}DH</td>
 
+                                        <td>
+                                            <i class="fa fa-times text-danger" aria-hidden="true"
+                                                (click)="removeProduit(p)"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Totale</td>
+                                        <td>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{Totale}}DH</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body">
 
                         <table id="example" class="table  table-striped table-sm " cellspacing="0" width="100%">
@@ -76,8 +116,13 @@
 
                                         {{o.description}}<br>
                                         {{o.prix}}DH</td>
-                                    <td *ngIf="electomenageVisible && o.typeProduit=='éléctromenager'"><i
-                                            class="fa fa-cart-plus" aria-hidden="true"></i>Acheter le produit</td>
+                                    <td *ngIf="electomenageVisible && o.typeProduit=='éléctromenager'">
+
+                                        <i class="fa fa-cart-plus text-success" (click)="ajouterProduit(o)"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;
+                                        &nbsp;ajouter le produit au panier &nbsp;&nbsp; &nbsp;<i
+                                            class="fa fa-shopping-basket" aria-hidden="true"></i> </td>
+
 
 
                                     <td *ngIf="cosmeticVisible && o.typeProduit=='cosmétique' ">
@@ -87,8 +132,12 @@
 
                                         {{o.description}}<br>
                                         {{o.prix}}DH</td>
-                                    <td *ngIf="cosmeticVisible && o.typeProduit=='cosmétique'"><i
-                                            class="fa fa-cart-plus" aria-hidden="true"></i>Acheter le produit</td>
+                                    <td *ngIf="cosmeticVisible && o.typeProduit=='cosmétique'">
+                                        <i class="fa fa-cart-plus text-success" (click)="ajouterProduit(o)"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;
+                                        &nbsp;ajouter le produit au panier &nbsp;&nbsp; &nbsp;<i
+                                            class="fa fa-shopping-basket" aria-hidden="true"></i> </td>
+
 
                                     <td *ngIf="mobilierVisible && o.typeProduit=='mobilier' ">
                                         <img src='../../../assets/Products/{{o.photoPath}}'
@@ -97,8 +146,13 @@
 
                                         {{o.description}}<br>
                                         {{o.prix}}DH</td>
-                                    <td *ngIf="mobilierVisible && o.typeProduit=='mobilier'"><i class="fa fa-cart-plus"
-                                            aria-hidden="true"></i>Acheter le produit</td>
+                                    <td *ngIf="mobilierVisible && o.typeProduit=='mobilier'">
+                                        <i class="fa fa-cart-plus text-success" (click)="ajouterProduit(o)"
+                                            aria-hidden="true"></i>&nbsp;&nbsp;
+                                        &nbsp;ajouter le produit au panier &nbsp;&nbsp; &nbsp;<i
+                                            class="fa fa-shopping-basket" aria-hidden="true"></i> </td>
+
+
 
 
                                     <td *ngIf="transportVisible && o.typeProduit=='transport' ">
@@ -108,9 +162,11 @@
 
                                         {{o.description}}<br>
                                         {{o.prix}}DH</td>
-                                    <td *ngIf="transportVisible   && o.typeProduit=='transport'"><i
-                                            class="fa fa-cart-plus" aria-hidden="true"></i>Acheter le produit</td>
-
+                                    <td *ngIf="transportVisible   && o.typeProduit=='transport'">
+                                        <i class="fa fa-cart-plus text-success" (click)="ajouterProduit(o)"
+                                            aria-hidden="true"> </i>&nbsp;&nbsp;
+                                        &nbsp;ajouter le produit au panier &nbsp;&nbsp; &nbsp;<i
+                                            class="fa fa-shopping-basket" aria-hidden="true"></i> </td>
 
                                 </tr>
 
@@ -127,9 +183,79 @@
 
 
 
-                
+
 
             </div>
         </div>
+
+
     </div>
+    <div class="animated fadeIn">
+
+        <div bsModal #Update="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="AddLabel"
+            aria-hidden="true">
+            <div class="modal-dialog bg-dark" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bgColor">
+
+                        <h3 class="text-white  ">Payment</h3>
+                        <label class="text-white ">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+
+                        <button type="button" class="close" (click)="Update.hide()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body horizontal-scrollable" style="height:400px;">
+                        <div class="card  ">
+
+                            <div class="card-body ">
+                                <form (ngSubmit)="onSubmit()">
+                                    <div class="form-group">
+                                        <label for="price">Total</label>
+                                        <input type="text" id="price" class="form-control" name="price" value="10">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="text" id="currency" class="form-control" name="currency"
+                                            placeholder="Enter Currency">
+                                    </div>
+                                    <div class="form-group">
+
+
+                                        <input type="text" id="method" class="form-control" name="method"
+                                            placeholder="Payment Method">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" id="intent" class="form-control" name="intent" value="sale">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <input type="text" id="description" class="form-control" name="description"
+                                            placeholder="Payment Description">
+
+                                    </div>
+
+
+                                    <button class="btn bgColor w-100" type="submit"><span>Valider</span></button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="Update.hide()">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

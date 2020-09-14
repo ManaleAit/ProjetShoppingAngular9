@@ -23,6 +23,8 @@ import { AuthenticationService } from './Services/authentication.service';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthGuard } from './Services/AuthGuard';
 import { EspaceClientComponent } from './Espace-client/espace-client.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ServiceCommandeService } from './Services/service-commande.service';
 //import { TokenInterceptor } from './Services/token-interceptor';
 @NgModule({
   imports: [
@@ -41,6 +43,7 @@ import { EspaceClientComponent } from './Espace-client/espace-client.component';
     AppRoutingModule,
     ToastrModule.forRoot(),
     ToastrModule.forRoot(),
+    ModalModule.forRoot()
    
   ], 
   declarations: [
@@ -49,14 +52,14 @@ import { EspaceClientComponent } from './Espace-client/espace-client.component';
     PageAccueilComponent,
     LoginComponent,
     RegistrationComponent,
-    EspaceClientComponent
+    EspaceClientComponent,
 
 
   ],
   providers: [
     AuthGuard,
     NotificationService,{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    ,AuthenticationService//,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    ,AuthenticationService,ServiceCommandeService,//,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
   
   bootstrap: [AppComponent],

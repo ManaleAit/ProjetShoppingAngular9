@@ -3,6 +3,7 @@ import { Client } from './Client';
 
 export class Commande{
     id:any;
-	produits:Produit;
+	produits:Produit[];
 	clients:Client[];
+	montantTotale:any;
 }

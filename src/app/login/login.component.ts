@@ -62,11 +62,13 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('role',this.role.name);
               localStorage.setItem('username',data.userName);
               localStorage.setItem('email',data.email);
+              
               if(data.fournisseur!=null){
                 localStorage.setItem('id',data.fournisseur.id);
               }
               
               if(this.role.name=='user'){
+                localStorage.setItem('idUser',data.client.id);
                 this.router.navigate(['/espaceClient'])
 
               }

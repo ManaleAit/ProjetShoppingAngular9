@@ -20,6 +20,8 @@ import { AjouterProduitComponent } from '../../Gestion-produit/ajouter-produit.c
 import { ServiceUserService } from '../../Services/service-user.service';
 import { ErrorInterceptor } from './error.interceptor';
 import { AfficherProduitsComponent } from '../../Gestion-produit/afficher-produits.component';
+import { ServiceCommandeService } from '../../Services/service-commande.service';
+import { ServiceClientService } from '../../Services/service-client.service';
 //import { ToastrModule } from 'ngx-toastr'; 
 @NgModule({
   imports: [
@@ -40,7 +42,7 @@ import { AfficherProduitsComponent } from '../../Gestion-produit/afficher-produi
     AlertModule.forRoot(),
     ModalModule.forRoot()
   ],
-  providers: [   ServiceUserService],//,{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
+  providers: [   ServiceUserService,ServiceCommandeService,ServiceClientService],//,{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   
   declarations: [
     DashboardComponent,
