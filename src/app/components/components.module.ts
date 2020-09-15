@@ -14,13 +14,13 @@ import { SidebarFournisseurComponent } from './sidebarFournisseur/sidebarFournis
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarFournisseurComponent
+    SidebarFournisseurComponent,
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    SidebarFournisseurComponent
+    SidebarFournisseurComponent,
   ]
 })
 export class ComponentsModule { }

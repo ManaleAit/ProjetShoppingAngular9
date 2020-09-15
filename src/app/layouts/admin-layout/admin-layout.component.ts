@@ -19,7 +19,8 @@ export class AdminLayoutComponent implements OnInit {
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
     authorizeUser = false;
-    role = 'string';
+    role = 'fournisseur';
+    nbReload=0;
     constructor(public location: Location, private router: Router) { }
 
     ngOnInit() {
@@ -27,8 +28,9 @@ export class AdminLayoutComponent implements OnInit {
         this.role = localStorage.getItem('role');
         if (this.role == 'admin') {
             this.authorizeUser = true;
-            console.log('rrr'+localStorage.getItem('role'));
         }
+       
+       
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
         if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {

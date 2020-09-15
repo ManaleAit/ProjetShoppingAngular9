@@ -84,7 +84,7 @@ export class RegistrationComponent implements OnInit {
         },
         error => {console.log(error);});
 
-
+       this.send=false;
 
     }else{
       this.notification.showWarning("Merci de remplir les champs du formulaire", "Attention!!!!!!!");

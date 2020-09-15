@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from '../../../environments/environment';
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -9,6 +8,8 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/Fournisseur', title: 'Gestion des Fournisseurs',  icon:'supervised_user_circle', class: '' },
+    { path: '/MessageComponent', title: 'Messages',  icon:'mail', class: '' },
+
   ];
 //gestion-marche
 @Component({

@@ -1,34 +1,35 @@
-
 <div class="sidenav">
-    <div class="login-main-text">
-       <h2 class=" font-weight-bold  colorStype text-dark">Magic Shopping<br> Bienvenue sur votre site de vente</h2>
-    </div>
- </div>
- <div class="main">
-    <div class="col-md-6 col-sm-12">
-       <div class="login-form">
-          <form  [formGroup]="Formulaire" (ngSubmit)="onSubmit()">
-            <img src='../../../assets/img/imageedit_4_4564710042.png'  style="width:250px;height:60px;margin-left: 60px;"/> 
-             <br><br>
+   <div class="login-main-text">
+      <h2 class=" font-weight-bold  colorStype text-dark">Magic Shopping<br> Bienvenue sur votre site de vente</h2>
+   </div>
+</div>
+<div class="main">
+   <div class="col-md-6 col-sm-12">
+      <div class="login-form">
+         <form [formGroup]="Formulaire" (ngSubmit)="onSubmit()">
+            <img src='../../../assets/img/imageedit_4_4564710042.png'
+               style="width:150px;height:50px;margin-left: 140px;" />
+            <br><br>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="User Name"   formControlName="userName">
+               <input type="text" class="form-control" placeholder="User Name" formControlName="userName">
 
-                <div *ngIf="send &&  userName.invalid" class="text-danger">
-                    Le champs userName est obligatoire*
-                </div>
-             </div>
-             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+               <div *ngIf="send &&  userName.invalid" class="text-danger">
+                  Le champs userName est obligatoire*
+               </div>
+            </div>
+            <div class="form-group">
+               <input type="password" class="form-control" placeholder="Password" formControlName="password">
 
-                <div *ngIf="send &&  password.invalid" class="text-danger">
-                    Le champs password est obligatoire*
-                </div>
-             </div>
-             <br><br>
-             <button type="submit" class="btn btn-black p-3 d-inline w-100 "  (click)="SendChange()">Se connecter</button>
-          </form>
-          <button type="submit" class="btn btn-warning p-3 d-inline w-100"  routerLink="/registration">Register</button>
-          <a  routerLink="/Accueil"  style="margin-left: 35%;"><-- page d'Accueil</a>
-       </div>
-    </div>
- </div>
+               <div *ngIf="send &&  password.invalid" class="text-danger">
+                  Le champs password est obligatoire*
+               </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-black p-3 d-inline w-100 " (click)="SendChange()">Se connecter</button>
+         </form>
+         <button type="submit" class="btn bg-secondary p-3 d-inline w-100" routerLink="/registration">Register</button>
+         <a routerLink="/Accueil" style="margin-left: 35%;">
+            <-- page d'Accueil</a>
+      </div>
+   </div>
+</div>

@@ -1,26 +1,26 @@
-
-
-<div class="wrapper"  >
-    <div *ngIf="authorizeUser"  class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+<div class="wrapper">
+    <div *ngIf="this.authorizeUser" class="sidebar" data-color="danger" data-background-color="white"
+        data-image="./assets/img/sidebar-1.jpg">
         <app-sidebar></app-sidebar>
         <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
-    <div *ngIf="!authorizeUser"  class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+    <div *ngIf="!this.authorizeUser" class="sidebar" data-color="danger" data-background-color="white"
+        data-image="./assets/img/sidebar-1.jpg">
         <app-sidebarFournisseur></app-sidebarFournisseur>
         <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
     </div>
 
     <div class="main-panel">
         <div>
-             <app-navbar></app-navbar>
+            <app-navbar></app-navbar>
         </div>
-       
+
         <router-outlet></router-outlet>
-      
+
         <app-footer></app-footer>
-       
+
     </div>
- <!--
+    <!--
        <div class="fixed-plugin">
         <div class="dropdown show-dropdown open show">
             <a href="#" data-toggle="dropdown" aria-expanded="true">
@@ -85,21 +85,22 @@
             </ul>
         </div>
     </div>
- --> 
+ -->
 </div>
 <!-- Buy-Modal-angular -->
 <div class="modal modal-angular fade" id="buy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-body text-center">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="margin-top">
-               BTP
-            </h4>
-            <div class="separator"></div>
-           
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="margin-top">
+                   MagicShop
+                </h4>
+                <div class="separator"></div>
+
+            </div>
         </div>
     </div>
-</div>
 
 </div>

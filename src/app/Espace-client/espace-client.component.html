@@ -71,7 +71,8 @@ margin-top: 2%;height:200px; width: 280px;" alt="...">
             <div class="col-md-8">
                 <div class="card cardStyle">
                     <div class="card-header bg-dark  marleft ">
-                        <button class="btn btn-warning w-100" type="submit" (click)="Update.show()"><span>Valider la
+                        <button class="btn btn-warning w-100" type="submit"
+                            (click)="priceSet();Update.show()"><span>Valider la
                                 commande</span></button>
                     </div>
                     <div class="card">
@@ -215,36 +216,59 @@ margin-top: 2%;height:200px; width: 280px;" alt="...">
                         <div class="card  ">
 
                             <div class="card-body ">
-                                <form (ngSubmit)="onSubmit()">
+                                <form [formGroup]="Formulaire" (ngSubmit)="onSubmit()">
                                     <div class="form-group">
                                         <label for="price">Total</label>
-                                        <input type="text" id="price" class="form-control" name="price" value="10">
+                                        <input type="text" id="price" class="form-control" name="price"
+                                            formControlName="price">
+
+                                        <div *ngIf="send &&  price.invalid" class="text-danger">
+                                            The price is required*
+                                        </div>
                                     </div>
                                     <div class="form-group">
 
                                         <input type="text" id="currency" class="form-control" name="currency"
-                                            placeholder="Enter Currency">
+                                            placeholder="Enter Currency" formControlName="currency">
+
+                                        <div *ngIf="send &&  currency.invalid" class="text-danger">
+                                            The currency is required*
+                                        </div>
                                     </div>
                                     <div class="form-group">
 
 
                                         <input type="text" id="method" class="form-control" name="method"
-                                            placeholder="Payment Method">
+                                            placeholder="Payment Method" formControlName="method">
+
+                                        <div *ngIf="send &&  method.invalid" class="text-danger">
+                                            The method is required*
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" id="intent" class="form-control" name="intent" value="sale">
+                                        <input type="text" id="intent" class="form-control" name="intent"
+                                            placeholder="intent" formControlName="intent">
+
+                                        <div *ngIf="send &&  intent.invalid" class="text-danger">
+                                            The intent is required*
+                                        </div>
                                     </div>
 
 
                                     <div class="form-group">
                                         <input type="text" id="description" class="form-control" name="description"
-                                            placeholder="Payment Description">
+                                            placeholder="Payment Description" formControlName="description">
+
+                                        <div *ngIf="send &&  description.invalid" class="text-danger">
+                                            The description is required*
+                                        </div>
 
                                     </div>
 
 
-                                    <button class="btn bgColor w-100" type="submit"><span>Valider</span></button>
+                                    <button class="btn bgColor w-100" (click)="SendChange()"
+                                        type="submit"><span>Valider</span></button>
                                 </form>
                             </div>
                         </div>

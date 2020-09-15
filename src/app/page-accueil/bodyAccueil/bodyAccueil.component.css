@@ -1,0 +1,44 @@
+.stylePhoto{
+    height: 600px;
+    width: 100%;
+}
+.colorStyle{
+    color:#FFA07A ;
+    text-align: justify;
+    margin-left: 40%;
+  }
+.stylemar{
+      color:#FF00FF;
+      margin-left: 45%;
+  }
+.stylebut{
+      background-color: #F0E68C;
+      margin-left: 45%;
+  }
+.stylehr{
+    background-color: #F0E68C;
+    margin-left: 5%;
+  }
+  
+.styleH1{
+     text-align: justify;
+     margin-left: 40%;
+  }
+  .btn-xl {
+    padding: 1.25rem 2.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    margin-left: 60%;
+    border-radius: 10rem;
+  }
+.stleContact{
+    margin-left: 40%;
+    color:#FFA07A ;
+    font-weight: bold;
+}
+.position{
+    margin-left: 20%;
+}
+  

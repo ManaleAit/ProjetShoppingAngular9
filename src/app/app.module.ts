@@ -25,6 +25,8 @@ import { AuthGuard } from './Services/AuthGuard';
 import { EspaceClientComponent } from './Espace-client/espace-client.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ServiceCommandeService } from './Services/service-commande.service';
+import { ServicePaymentService } from './Services/service-payment.service';
+import { ServiceMessageContactService } from './Services/service-MessageContact.service';
 //import { TokenInterceptor } from './Services/token-interceptor';
 @NgModule({
   imports: [
@@ -59,7 +61,7 @@ import { ServiceCommandeService } from './Services/service-commande.service';
   providers: [
     AuthGuard,
     NotificationService,{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    ,AuthenticationService,ServiceCommandeService,//,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    ,AuthenticationService,ServiceCommandeService,ServicePaymentService,ServiceMessageContactService,//,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
   
   bootstrap: [AppComponent],

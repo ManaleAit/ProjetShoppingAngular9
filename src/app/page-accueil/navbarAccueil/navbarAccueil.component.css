@@ -1,35 +1,5 @@
 
-.btn-xl {
-  padding: 1.25rem 2.25rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 10rem;
-}
 
-.colorStyle{
-  color:#FFA07A ;
-  text-align: justify;
-  margin-left: 50%;
-}
-.stylemar{
-    color:#FF00FF;
-    margin-left: 30%;
-}
-.stylebut{
-    background-color: #F0E68C;
-    margin-left: 55%;
-}
-.stylehr{
-  background-color: #F0E68C;
-  margin-left: 45%;
-}
-
-.styleH1{
-   text-align: justify;
-   margin-left: 50%;
-}
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
@@ -108,14 +78,14 @@ header.masthead h1 {
 
 .topnav {
   overflow: hidden;
-  background-color:transparent!important;
+  background-color:rgb(51, 51, 51);
 }
 
 .topnav a {
   
   float: left;
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
